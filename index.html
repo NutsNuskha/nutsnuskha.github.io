@@ -40,6 +40,12 @@
       padding: 20px;
       width: 90%;
       max-width: 320px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
     }
 
     .card h2 {
@@ -55,6 +61,17 @@
     .price {
       font-weight: bold;
       color: #444;
+    }
+
+    .product-image {
+      display: none;
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+
+    .card.show-image .product-image {
+      display: block;
     }
 
     .button {
@@ -82,22 +99,26 @@
   <p class="tagline">Wholesome, homemade dry fruits & snacks delivered fresh!</p>
 
   <div class="product">
-    <div class="card">
+
+    <div class="card" onclick="toggleImage(this)">
       <h2>Gudness Channa</h2>
       <p>Roasted channa with jaggery, made in ghee</p>
       <p class="price">₹90 / 150g</p>
+      <img class="product-image" src="images/gud-channa.jpg" alt="Gudness Channa">
     </div>
 
-    <div class="card">
+    <div class="card" onclick="toggleImage(this)">
       <h2>Power Munch</h2>
       <p>Roasted, homestyle masala mix of nuts & seeds</p>
       <p class="price">₹225 / 180g</p>
+      <img class="product-image" src="images/power-munch.jpg" alt="Power Munch">
     </div>
 
-    <div class="card">
+    <div class="card" onclick="toggleImage(this)">
       <h2>Daily Dose</h2>
       <p>Mix of dry fruits, nuts, seeds, cranberries & black raisins</p>
       <p class="price">₹260 / 180g</p>
+      <img class="product-image" src="images/daily-dose.jpg" alt="Daily Dose">
     </div>
 
     <a class="button" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order!" target="_blank">
@@ -108,6 +129,12 @@
   <footer>
     📍 Gurgaon | 📞 +91-9896309925 | 📧 nutsnuskha@gmail.com
   </footer>
+
+  <script>
+    function toggleImage(card) {
+      card.classList.toggle("show-image");
+    }
+  </script>
 
 </body>
 </html>
