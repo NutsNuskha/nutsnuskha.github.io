@@ -8,45 +8,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    .social-icon {
-  color: #E1306C; /* Instagram pink */
-  font-weight: bold;
-  text-decoration: none;
-  margin-top: 10px;
-  display: inline-block;
-  font-size: 1.1em;
-}
-
-.social-icon i {
-  margin-right: 8px;
-}
-
-.social-icon:hover {
-  color: #c82361;
-}
-
     body {
       font-family: 'Quicksand', sans-serif;
       text-align: center;
       background-color: #fff9f3;
       color: #333;
       padding: 20px;
+      margin: 0;
     }
+
+    .social-icon {
+      color: #E1306C;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 10px;
+      display: inline-block;
+      font-size: 1.1em;
+    }
+    .social-icon i { margin-right: 8px; }
+    .social-icon:hover { color: #c82361; }
 
     .logo {
       max-width: 180px;
       margin-bottom: 15px;
     }
 
-    h1 {
-      color: #8d5a2a;
-      margin-bottom: 10px;
-    }
+    h1 { color: #8d5a2a; margin-bottom: 10px; }
+    p.tagline { margin-top: 0; color: #6a4f3b; font-size: 1.1em; }
 
-    p.tagline {
-      margin-top: 0;
-      color: #6a4f3b;
-      font-size: 1.1em;
+    .nav { margin-top: 20px; }
+    .nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #8d5a2a;
+      font-weight: bold;
     }
 
     .product {
@@ -57,37 +52,21 @@
       margin-top: 30px;
     }
 
+    /* Card base */
     .card {
       background: #fff;
-      border-radius: 30px;
+      border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       padding: 20px;
-      width: 90%;
+      width: 100%;
       max-width: 600px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 20px;
       transition: transform 0.3s;
+      box-sizing: border-box;
     }
-
-    .card:hover {
-      transform: scale(1.02);
-    }
-
-    .card h2 {
-      color: #7b3f00;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      margin: 8px 0;
-      font-size: 0.95em;
-    }
-
-    .price {
-      font-weight: bold;
-      color: #444;
-    }
+    .card:hover { transform: scale(1.02); }
 
     .product-image {
       width: 150px;
@@ -98,7 +77,14 @@
 
     .text {
       text-align: left;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow-wrap: break-word;
     }
+
+    .card h2 { color: #7b3f00; margin-bottom: 10px; }
+    .card p { margin: 4px 0; font-size: 0.95em; line-height: 1.4; }
+    .price { font-weight: bold; color: #444; }
 
     .button {
       background-color: #25D366;
@@ -112,28 +98,49 @@
       margin-top: 10px;
     }
 
-    .nav {
-      margin-top: 20px;
-    }
-
-    .nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #8d5a2a;
-      font-weight: bold;
-    }
-
     footer {
       margin-top: 40px;
       font-size: 0.9em;
       color: #555;
     }
+
+    /* 🔥 Blinking Navratri Special text */
+    .blink-text {
+      display: block;
+      margin: 6px 0 10px 0;
+      font-weight: bold;
+      font-size: 1.05em;
+      text-align: center;
+      background: linear-gradient(90deg, #ff4e50, #f9d423, #24c6dc, #7b3f00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* 📱 Mobile optimization */
+    @media (max-width: 600px) {
+      .card {
+        flex-direction: column;   /* stack */
+        align-items: center;
+        text-align: center;
+      }
+      .product-image {
+        width: 70%;
+        max-width: 280px;
+        margin-bottom: 12px;
+      }
+      .text { text-align: center; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- LOGO HERE -->
-  <img src="logo_no_bg - Edited.png" alt="Nuts Nuskha Logo" style="width:150px; height:auto;">
+  <!-- LOGO -->
+  <img src="logo_no_bg - Edited.png" alt="Nuts Nuskha Logo" class="logo">
 
   <h1>Welcome to Nuts Nuskha!</h1>
   <p class="tagline">Wholesome, homemade dry fruits & snacks delivered fresh!</p>
@@ -144,19 +151,22 @@
   </div>
 
   <div class="product">
+    <!-- Navratri Mix Card -->
     <div class="card">
       <img class="product-image" src="Nav.png" alt="Navratri Mix">
-      <div class="text"        
+      <div class="text">
         <span class="blink-text">✨ Navratri Special — Made especially for Navratri! ✨</span>
-        
-        <h2>Navratri Mix</h2>        
-        <p>A light and sattvik blend designed for fasting days. Made with ghee-roasted makhana, almonds, cashews, raisins, pumpkin seeds, peanuts, and seasoned with sendha namak and black pepper.
-          This mix provides clean energy, essential nutrients, and natural sweetness to keep you nourished, balanced, and energized throughout Navratri.</p>
+        <h2>Navratri Mix</h2>
+        <p>
+          A light and sattvik blend designed for fasting days. Made with ghee-roasted makhana, almonds, cashews, raisins, pumpkin seeds, peanuts, and seasoned with sendha namak and black pepper.
+          This mix provides clean energy, essential nutrients, and natural sweetness to keep you nourished, balanced, and energized throughout Navratri.
+        </p>
         <span style="text-decoration: line-through;text-decoration-color: #999;color: #999;">Rs 135</span> 
         <p class="price">Rs115 / 100g</p>
       </div>
     </div>
 
+    <!-- Gudness Chana -->
     <div class="card">
       <img class="product-image" src="IMG_1262 - Edited.png" alt="Gudness Channa">
       <div class="text">
@@ -167,6 +177,7 @@
       </div>
     </div>
 
+    <!-- Power Munch -->
     <div class="card">
       <img class="product-image" src="IMG_1259 (1) - Edited.png" alt="Power Munch">
       <div class="text">
@@ -177,6 +188,7 @@
       </div>
     </div>
 
+    <!-- Gud Almonds -->
     <div class="card">
       <img class="product-image" src="IMG_1281 - Edited.png" alt="Gud Almonds">
       <div class="text">
@@ -187,6 +199,7 @@
       </div>
     </div>
 
+    <!-- Zesty Cashew -->
     <div class="card">
       <img class="product-image" src="IMG_1246 (1) - Edited.png" alt="Zesty Cashew">
       <div class="text">
@@ -203,12 +216,11 @@
   </div>
 
   <footer>
-  📍 Gurgaon | 📞 +91-9896309925 | 📧 nutsnuskha@gmail.com <br>
-  <a href="https://www.instagram.com/nutsnuskha?igsh=ZWY5ajV3aTEwbXhi" target="_blank" class="social-icon">
-    <i class="fab fa-instagram"></i> Follow us on Instagram
-  </a>
-</footer>
-
+    📍 Gurgaon | 📞 +91-9896309925 | 📧 nutsnuskha@gmail.com <br>
+    <a href="https://www.instagram.com/nutsnuskha?igsh=ZWY5ajV3aTEwbXhi" target="_blank" class="social-icon">
+      <i class="fab fa-instagram"></i> Follow us on Instagram
+    </a>
+  </footer>
 
 </body>
 </html>
