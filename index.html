@@ -13,105 +13,136 @@
       --bg:#fff9f3;
       --card:#fff;
       --accent:#25D366; /* whatsapp */
+      --glass: rgba(255,255,255,0.85);
     }
+    *{box-sizing:border-box}
     body {
       font-family: 'Quicksand', sans-serif;
       text-align: center;
       background-color: var(--bg);
       color: #333;
-      padding: 20px;
+      padding: 0;
       margin:0;
+      -webkit-font-smoothing:antialiased;
     }
 
     header{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
+      gap:12px;
       max-width:1100px;
-      margin:0 auto 12px auto;
-      padding:12px 8px;
+      margin:0 auto;
+      padding:12px 16px;
       position:sticky;
       top:0;
-      background:linear-gradient(180deg, rgba(255,249,243,0.95), rgba(255,249,243,0.9));
+      background:linear-gradient(180deg, rgba(255,249,243,0.98), rgba(255,249,243,0.95));
       z-index:20;
-      border-bottom:1px solid rgba(0,0,0,0.03);
+      border-bottom:1px solid rgba(0,0,0,0.04);
     }
 
-    .logo {max-width:140px}
+    .logo {max-width:120px;height:auto}
 
-    h1 {color:var(--brand); margin:0}
-    p.tagline{margin:0;color:#6a4f3b}
+    .brand-wrap{display:flex;align-items:center;gap:12px}
+    h1 {color:var(--brand); margin:0;font-size:1.05rem}
+    p.tagline{margin:0;color:#6a4f3b;font-size:0.85rem}
 
-    .nav a{margin:0 8px;text-decoration:none;color:var(--brand);font-weight:600}
+    .nav a{margin:0 8px;text-decoration:none;color:var(--brand);font-weight:600;font-size:0.95rem}
 
-    .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;max-width:1100px;margin:18px auto}
+    main{padding:14px}
+
+    .product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:1100px;margin:12px auto}
 
     .card{
       background:var(--card);
       border-radius:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.06);
-      padding:14px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+      padding:12px;
       display:flex;
       gap:12px;
       align-items:flex-start;
-      transition:transform .18s;
+      transition:transform .18s, box-shadow .18s;
     }
-    .card:hover{transform:translateY(-4px)}
-    .product-image{width:130px;height:130px;object-fit:cover;border-radius:10px;flex-shrink:0}
+    .card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,0,0,0.08)}
+    .product-image{width:120px;height:120px;object-fit:cover;border-radius:10px;flex-shrink:0}
     .text{flex:1;text-align:left}
-    .text h2{color:#7b3f00;margin:4px 0}
-    .text p{margin:6px 0;font-size:0.95rem;color:#444}
+    .text h2{color:#7b3f00;margin:4px 0;font-size:1.02rem}
+    .text p{margin:6px 0 8px 0;font-size:0.95rem;color:#444;line-height:1.25}
     .price{font-weight:700;color:#333}
     .strike{color:var(--muted);text-decoration:line-through}
 
-    .button{background-color:var(--accent);color:white;padding:8px 12px;border:none;border-radius:8px;font-size:14px;cursor:pointer}
-    .button.secondary{background:#f3f3f3;color:#333}
+    .button{background-color:var(--accent);color:white;padding:10px 14px;border:none;border-radius:10px;font-size:14px;cursor:pointer}
+    .button.secondary{background:#f3f3f3;color:#333;border:1px solid rgba(0,0,0,0.05)}
 
     /* cart badge */
     .cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,0.06);cursor:pointer}
     .cart-count{position:absolute;top:-6px;right:-6px;background:#e63946;color:#fff;border-radius:999px;padding:4px 7px;font-size:12px;box-shadow:0 3px 8px rgba(0,0,0,0.15)}
 
     /* cart modal */
-    .cart-modal{position:fixed;right:20px;bottom:20px;width:360px;max-width:calc(100% - 40px);background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.2);z-index:80;overflow:hidden;display:none}
+    .cart-modal{position:fixed;right:18px;bottom:18px;width:380px;max-width:calc(100% - 36px);background:var(--glass);backdrop-filter:blur(4px);border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,0.25);z-index:80;overflow:hidden;display:none}
     .cart-modal.open{display:block}
-    .cart-header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid rgba(0,0,0,0.06)}
+    .cart-header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid rgba(0,0,0,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.6))}
     .cart-body{max-height:320px;overflow:auto;padding:12px}
-    .cart-row{display:flex;gap:10px;align-items:center;border-bottom:1px dashed rgba(0,0,0,0.04);padding:8px 0}
+    .cart-row{display:flex;gap:10px;align-items:center;border-bottom:1px dashed rgba(0,0,0,0.04);padding:10px 0}
     .cart-row img{width:56px;height:56px;object-fit:cover;border-radius:8px}
     .qty-controls{display:flex;align-items:center;gap:6px}
     .cart-footer{padding:12px;border-top:1px solid rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:8px}
 
     /* floating social bar */
     .social-bar{position:fixed;left:12px;bottom:20px;display:flex;flex-direction:column;gap:8px;z-index:70}
-    .social-bar a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.12);text-decoration:none;color:var(--brand);font-size:18px}
+    .social-bar a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.12);text-decoration:none;color:var(--brand);font-size:18px}
 
-    footer{margin-top:34px;font-size:0.9em;color:#555;padding:20px}
+    footer{margin-top:34px;font-size:0.9em;color:#555;padding:24px;text-align:center}
 
-    @media (max-width:540px){
-      .product-image{width:100px;height:100px}
-      header{padding:8px}
+    /* Mobile-specific tweaks */
+    @media (max-width:900px){
+      .product-grid{grid-template-columns:repeat(2,1fr);padding:6px}
+      header{padding:10px}
     }
+
+    @media (max-width:600px){
+      .product-grid{grid-template-columns:1fr;gap:12px;padding:10px}
+      .card{flex-direction:row;align-items:center;padding:10px}
+      .product-image{width:96px;height:96px}
+      h1{font-size:1rem}
+      .brand-wrap{gap:8px}
+      .nav{display:none}
+
+      /* Make cart modal full-screen bottom sheet on phone */
+      .cart-modal{left:0;right:0;bottom:0;top:auto;width:100%;height:56vh;max-height:80vh;border-radius:12px 12px 0 0}
+      .cart-body{max-height:calc(56vh - 140px)}
+
+      /* Sticky checkout bar */
+      .sticky-checkout{position:fixed;left:0;right:0;bottom:0;padding:12px;background:linear-gradient(0deg, rgba(255,249,243,0.98), rgba(255,249,243,0.95));box-shadow:0 -6px 18px rgba(0,0,0,0.06);display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:75}
+      .sticky-checkout .button{flex:1}
+
+      .social-bar{left:auto;right:12px;bottom:90px}
+    }
+
   </style>
 </head>
 <body>
   <header>
     <div style="display:flex;align-items:center;gap:12px">
       <img src="logo_no_bg - Edited.png" alt="Nuts Nuskha" class="logo">
-      <div>
-        <h1>Welcome to Nuts Nuskha</h1>
-        <p class="tagline">Wholesome, homemade dry fruits & snacks delivered fresh!</p>
+      <div class="brand-wrap">
+        <div>
+          <h1>Welcome to Nuts Nuskha</h1>
+          <p class="tagline">Wholesome, homemade dry fruits & snacks delivered fresh!</p>
+        </div>
       </div>
+
     </div>
 
-    <div style="display:flex;align-items:center;gap:12px">
+    <div style="display:flex;align-items:center;gap:10px">
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
       </nav>
 
       <button id="openCart" class="cart-btn" aria-label="Open cart">
-        <i class="fa-solid fa-cart-shopping"></i> Cart
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span style="display:inline-block">Cart</span>
         <span id="cartCount" class="cart-count" style="display:none">0</span>
       </button>
     </div>
@@ -127,12 +158,13 @@
         <div class="text">
           <h2>Pudina Pop</h2>
           <p>Pudina Pop Makhana — Light, crunchy, and roasted in olive oil with a refreshing pudina twist. Roasted | Low-calorie | Nutrient-rich</p>
-          <div>
+          <div style="display:flex;gap:8px;align-items:center">
             <span class="strike">Rs 235</span>
             <div class="price">Rs175 / 70g</div>
           </div>
-          <div style="margin-top:8px">
-            <button class="button add-to-cart">Add to cart</button>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <button class="button add-to-cart" style="flex:1">Add to cart</button>
+            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20Pudina%20Pop" target="_blank">Buy Now</a>
           </div>
         </div>
       </article>
@@ -142,12 +174,13 @@
         <div class="text">
           <h2>The OG Pop</h2>
           <p>Salt & Black Pepper Makhana — Classic roasted makhana with a dash of salt and pepper. High in fiber | Light & crunchy</p>
-          <div>
+          <div style="display:flex;gap:8px;align-items:center">
             <span class="strike">Rs 235</span>
             <div class="price">Rs175 / 70g</div>
           </div>
-          <div style="margin-top:8px">
-            <button class="button add-to-cart">Add to cart</button>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <button class="button add-to-cart" style="flex:1">Add to cart</button>
+            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20The%20OG%20Pop" target="_blank">Buy Now</a>
           </div>
         </div>
       </article>
@@ -157,12 +190,13 @@
         <div class="text">
           <h2>Gudness Chana</h2>
           <p>Roasted channa with jaggery, made in ghee</p>
-          <div>
+          <div style="display:flex;gap:8px;align-items:center">
             <span class="strike">Rs 110</span>
             <div class="price">Rs99 / 150g</div>
           </div>
-          <div style="margin-top:8px">
-            <button class="button add-to-cart">Add to cart</button>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <button class="button add-to-cart" style="flex:1">Add to cart</button>
+            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20Gudness%20Chana" target="_blank">Buy Now</a>
           </div>
         </div>
       </article>
@@ -172,13 +206,13 @@
         <div class="text">
           <h2>Power Munch</h2>
           <p>Roasted, homestyle masala mix of nuts & seeds</p>
-          <div>
+          <div style="display:flex;gap:8px;align-items:center">
             <span class="strike">Rs250</span>
             <div class="price">Rs225 / 180g</div>
-            <div class="price">Rs129 / 100g</div>
           </div>
-          <div style="margin-top:8px">
-            <button class="button add-to-cart">Add to cart</button>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <button class="button add-to-cart" style="flex:1">Add to cart</button>
+            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20Power%20Munch" target="_blank">Buy Now</a>
           </div>
         </div>
       </article>
@@ -188,12 +222,13 @@
         <div class="text">
           <h2>Gud Almonds - Basil Leaf Crush</h2>
           <p>Wholesome almonds with jaggery, packed with energy and immunity-boosting nutrients.</p>
-          <div>
+          <div style="display:flex;gap:8px;align-items:center">
             <span class="strike">Rs279</span>
             <div class="price">Rs229 / 100g</div>
           </div>
-          <div style="margin-top:8px">
-            <button class="button add-to-cart">Add to cart</button>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <button class="button add-to-cart" style="flex:1">Add to cart</button>
+            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20Gud%20Almonds" target="_blank">Buy Now</a>
           </div>
         </div>
       </article>
@@ -203,19 +238,20 @@
         <div class="text">
           <h2>Zesty Cashew</h2>
           <p>Delivers protein, healthy fats, and energy in a crunchy, zesty bite.</p>
-          <div>
+          <div style="display:flex;gap:8px;align-items:center">
             <span class="strike">Rs279</span>
             <div class="price">Rs229 / 100g</div>
           </div>
-          <div style="margin-top:8px">
-            <button class="button add-to-cart">Add to cart</button>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <button class="button add-to-cart" style="flex:1">Add to cart</button>
+            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20Zesty%20Cashew" target="_blank">Buy Now</a>
           </div>
         </div>
       </article>
 
     </div>
 
-    <!-- Order CTA (desktop/mobile) -->
+    <!-- Order CTA (desktop) -->
     <div style="max-width:1100px;margin:18px auto;text-align:left;padding:0 12px">
       <a class="button" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order!" target="_blank">Order on WhatsApp</a>
     </div>
@@ -245,6 +281,12 @@
     </div>
   </div>
 
+  <!-- Sticky checkout on mobile -->
+  <div class="sticky-checkout" style="display:none" id="mobileCheckout">
+    <div style="font-weight:700">Total: <span id="mobileTotal">Rs0</span></div>
+    <button id="mobileCheckoutBtn" class="button">Checkout</button>
+  </div>
+
   <!-- Floating social bar -->
   <div class="social-bar" aria-hidden="false">
     <a href="https://wa.me/919896309925" title="WhatsApp" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
@@ -270,6 +312,7 @@
     function saveCart(cart){
       localStorage.setItem(CART_KEY, JSON.stringify(cart));
       renderCartCount();
+      renderMobileBar();
     }
 
     function addToCart(item){
@@ -310,6 +353,15 @@
       else { el.style.display='none'; }
     }
 
+    function renderMobileBar(){
+      const mobileBar = document.getElementById('mobileCheckout');
+      const totalEl = document.getElementById('mobileTotal');
+      const total = calcTotal();
+      totalEl.textContent = 'Rs' + total;
+      if(window.innerWidth <= 600 && total>0){ mobileBar.style.display='flex'; }
+      else { mobileBar.style.display='none'; }
+    }
+
     function renderCart(){
       const container = document.getElementById('cartBody');
       const cart = getCart();
@@ -322,10 +374,10 @@
           <div style="flex:1;text-align:left">
             <div style="font-weight:700">${item.name}</div>
             <div style="color:#666;font-size:13px">${item.weight} • Rs${item.price} each</div>
-            <div style="margin-top:6px;display:flex;align-items:center;gap:8px">
+            <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
               <div class="qty-controls">
                 <button class="button secondary qty-minus">-</button>
-                <span style="min-width:26px;text-align:center;display:inline-block">${item.qty}</span>
+                <span style="min-width:34px;text-align:center;display:inline-block">${item.qty}</span>
                 <button class="button qty-plus">+</button>
               </div>
               <button class="button secondary remove-item">Remove</button>
@@ -340,6 +392,7 @@
       });
       document.getElementById('cartTotal').textContent = 'Rs' + calcTotal();
       renderCartCount();
+      renderMobileBar();
     }
 
     // Initialize add-to-cart buttons
@@ -362,6 +415,7 @@
     const closeCartBtn = document.getElementById('closeCart');
     const clearCartBtn = document.getElementById('clearCart');
     const checkoutBtn = document.getElementById('checkoutBtn');
+    const mobileCheckoutBtn = document.getElementById('mobileCheckoutBtn');
 
     function openCartModal(){ cartModal.classList.add('open'); renderCart(); }
     function closeCartModal(){ cartModal.classList.remove('open'); }
@@ -372,7 +426,7 @@
     clearCartBtn.addEventListener('click', ()=>{ if(confirm('Clear all items from cart?')){ localStorage.removeItem(CART_KEY); renderCart(); } });
 
     // Checkout builds a WhatsApp message with cart summary
-    checkoutBtn.addEventListener('click', ()=>{
+    function doCheckout(){
       const cart = getCart();
       if(cart.length===0){ alert('Your cart is empty'); return; }
       let message = `Hi Nuts Nuskha! I'd like to place an order:%0A`;
@@ -380,10 +434,17 @@
       message += `%0ATotal: Rs${calcTotal()}%0AName:%0AAddress/Instructions:%0AContact:`;
       const url = `https://wa.me/${WA_NUMBER.replace('+','')}?text=${message}`;
       window.open(url,'_blank');
-    });
+    }
+
+    checkoutBtn.addEventListener('click', doCheckout);
+    mobileCheckoutBtn.addEventListener('click', doCheckout);
 
     // initial render
     renderCartCount();
+    renderMobileBar();
+
+    // Handle resize to update mobile bar visibility
+    window.addEventListener('resize', renderMobileBar);
 
     // Small enhancement: allow direct "Add & open cart" via Shift-click
     document.addEventListener('click', (e)=>{
