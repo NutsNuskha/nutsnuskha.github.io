@@ -74,6 +74,35 @@
     .button{background-color:var(--accent);color:white;padding:10px 14px;border:none;border-radius:10px;font-size:14px;cursor:pointer}
     .button.secondary{background:#f3f3f3;color:#333;border:1px solid rgba(0,0,0,0.05)}
 
+    /* ----- NEW: make Add to cart smaller & not stretch ----- */
+    /* Target only the product card add-to-cart buttons */
+    .card .add-to-cart {
+      padding: 6px 10px;         /* smaller padding */
+      font-size: 13px;          /* slightly smaller text */
+      border-radius: 8px;
+      min-width: 110px;         /* consistent width */
+      max-width: 130px;
+      white-space: nowrap;
+      flex: 0 0 auto !important; /* override inline flex:1 to prevent stretching */
+    }
+
+    /* Optionally make the Add to cart visually distinct (keeps same green) */
+    .card .add-to-cart {
+      background-color: var(--accent);
+      color: #fff;
+    }
+
+    /* On very small screens make it slightly narrower */
+    @media (max-width:420px){
+      .card .add-to-cart {
+        min-width: 88px;
+        max-width: 100px;
+        padding: 6px 8px;
+        font-size: 12px;
+      }
+    }
+    /* ----- END new rules ----- */
+
     /* cart badge */
     .cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,0.06);cursor:pointer}
     .cart-count{position:absolute;top:-6px;right:-6px;background:#e63946;color:#fff;border-radius:999px;padding:4px 7px;font-size:12px;box-shadow:0 3px 8px rgba(0,0,0,0.15)}
