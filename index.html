@@ -288,7 +288,7 @@
   </div>
 
   <!-- Floating social bar -->
-  <!-- Social Media Bar -->
+<!-- Social Media Bar -->
 <div class="social-bar" aria-hidden="false">
   <a href="https://wa.me/919896309925" title="WhatsApp" target="_blank" aria-label="WhatsApp" class="whatsapp">
     <i class="fa-brands fa-whatsapp"></i>
@@ -299,10 +299,10 @@
   <a href="https://www.facebook.com/" title="Facebook" target="_blank" aria-label="Facebook" class="facebook">
     <i class="fa-brands fa-facebook"></i>
   </a>
+  <!-- Gmail Icon -->
   <a href="mailto:nutsnuskha@gmail.com" title="Gmail" aria-label="Gmail" class="gmail">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.svg" alt="Gmail" style="width:32px;height:32px;">
-</a>
-
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.svg" 
+         alt="Gmail" class="gmail-icon">
   </a>
 </div>
 
@@ -340,11 +340,21 @@
 .facebook i {
   color: #1877F2;
 }
-  
-  .email i {
-  color: #D44638;
+
+/* Gmail icon styling */
+.gmail-icon {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gmail:hover .gmail-icon {
+  transform: scale(1.2);
+  opacity: 0.8;
 }
 </style>
+
 
 
   <footer>
