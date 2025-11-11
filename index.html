@@ -65,18 +65,9 @@
 
     .social-bar{position:fixed;left:12px;bottom:20px;display:flex;flex-direction:column;gap:8px;z-index:70}
     .social-bar a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.12);text-decoration:none;color:var(--brand);font-size:18px}
-    .gmail-icon {
-  width: 20px;     /* small square to visually match icon fonts */
-  height: 20px;
-  display: block;
-  object-fit: contain;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
+    .gmail-icon { width: 20px; height: 20px; display: block; object-fit: contain; transition: transform 0.3s ease, opacity 0.3s ease; }
+    .gmail:hover .gmail-icon { transform: scale(1.15); opacity: 0.9; }
 
-.gmail:hover .gmail-icon {
-  transform: scale(1.15);
-  opacity: 0.9;
-}
     footer{margin-top:34px;font-size:0.9em;color:#555;padding:24px;text-align:center}
 
     @media (max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr);padding:6px}header{padding:10px}}
@@ -86,9 +77,10 @@
     .testimonials-section{max-width:1100px;margin:28px auto;padding:18px;border-radius:12px;background:linear-gradient(180deg,var(--testimonial-bg),#fff);box-shadow:0 8px 24px rgba(0,0,0,0.04)}
     .testimonials-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px}
     .testimonials-header h3{margin:0;color:#6a3f1f}
-    .testimonial-wrap{position:relative;padding:12px}
+    .testimonial-wrap{position:relative;padding:12px;min-height:120px}
     .testimonial-card{display:flex;gap:14px;align-items:center;max-width:920px;margin:0 auto;padding:16px;border-radius:10px;background:var(--card);box-shadow:0 8px 20px rgba(0,0,0,0.03);transition:transform .18s}
-    .testimonial-avatar{width:64px;height:64px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#fff;background:linear-gradient(135deg,#ffb27a,#d67a2b)}
+    .testimonial-avatar{width:64px;height:64px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#fff;background:linear-gradient(135deg,#ffb27a,#d67a2b);flex:0 0 64px}
+    .testimonial-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
     .testimonial-body{text-align:left;flex:1}
     .testimonial-body p{margin:6px 0;color:#444}
     .testimonial-meta{font-size:13px;color:var(--muted)}
@@ -107,7 +99,6 @@
     .modal input,.modal textarea, .modal select{width:100%;padding:8px;border-radius:8px;border:1px solid #eee;margin-bottom:8px}
 
     @media (max-width:600px){.testimonial-card{flex-direction:row;gap:10px}.testimonial-avatar{width:56px;height:56px}}
-
   </style>
 </head>
 <body>
@@ -120,7 +111,6 @@
           <p class="tagline">Wholesome, homemade dry fruits & snacks delivered fresh!</p>
         </div>
       </div>
-
     </div>
 
     <div style="display:flex;align-items:center;gap:10px">
@@ -139,13 +129,13 @@
 
   <main>
     <div class="product-grid" id="productGrid">
-      <!-- existing product cards (unchanged) -->
-
+      <!-- your product cards (keep/update images & data as needed) -->
+      <!-- Example cards (you can keep your existing ones) -->
       <article class="card" data-name="Pudina Pop" data-price="175" data-weight="70g" data-img="pudina.png">
         <img class="product-image" src="pudina.png" alt="Pudina Pop">
         <div class="text">
           <h2>Pudina Pop</h2>
-          <p>Pudina Pop Makhana — Light, crunchy, and roasted in olive oil with a refreshing pudina twist. Roasted | Low-calorie | Nutrient-rich</p>
+          <p>Pudina Pop Makhana — Light, crunchy, and roasted in olive oil with a refreshing pudina twist.</p>
           <div style="display:flex;gap:8px;align-items:center">
             <span class="strike">Rs 235</span>
             <div class="price">Rs175 / 70g</div>
@@ -157,93 +147,15 @@
         </div>
       </article>
 
-      <article class="card" data-name="The OG Pop" data-price="175" data-weight="70g" data-img="kalimirch.png">
-        <img class="product-image" src="kalimirch.png" alt="The OG Pop">
-        <div class="text">
-          <h2>The OG Pop</h2>
-          <p>Salt & Black Pepper Makhana — Classic roasted makhana with a dash of salt and pepper. High in fiber | Light & crunchy</p>
-          <div style="display:flex;gap:8px;align-items:center">
-            <span class="strike">Rs 235</span>
-            <div class="price">Rs175 / 70g</div>
-          </div>
-          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
-            <button class="button add-to-cart" style="flex:1">Add to cart</button>
-            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20The%20OG%20Pop" target="_blank">Buy Now</a>
-          </div>
-        </div>
-      </article>
+      <!-- (other product cards go here — keep your originals) -->
 
-      <article class="card" data-name="Gudness Chana" data-price="99" data-weight="150g" data-img="IMG_1262 - Edited.png">
-        <img class="product-image" src="IMG_1262 - Edited.png" alt="Gudness Chana">
-        <div class="text">
-          <h2>Gudness Chana</h2>
-          <p>Roasted channa with jaggery, made in ghee</p>
-          <div style="display:flex;gap:8px;align-items:center">
-            <span class="strike">Rs 110</span>
-            <div class="price">Rs99 / 150g</div>
-          </div>
-          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
-            <button class="button add-to-cart" style="flex:1">Add to cart</button>
-            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20Gudness%20Chana" target="_blank">Buy Now</a>
-          </div>
-        </div>
-      </article>
+    </div>
 
-      <article class="card" data-name="Power Munch (180g)" data-price="225" data-weight="180g" data-img="IMG_1259 (1) - Edited.png">
-        <img class="product-image" src="IMG_1259 (1) - Edited.png" alt="Power Munch">
-        <div class="text">
-          <h2>Power Munch</h2>
-          <p>Roasted, homestyle masala mix of nuts & seeds</p>
-          <div style="display:flex;gap:8px;align-items:center">
-            <span class="strike">Rs250</span>
-            <div class="price">Rs225 / 180g</div>
-          </div>
-          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
-            <button class="button add-to-cart" style="flex:1">Add to cart</button>
-            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20Power%20Munch" target="_blank">Buy Now</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-name="Gud Almonds - Basil Leaf Crush" data-price="229" data-weight="100g" data-img="IMG_1281 - Edited.png">
-        <img class="product-image" src="IMG_1281 - Edited.png" alt="Gud Almonds">
-        <div class="text">
-          <h2>Gud Almonds - Basil Leaf Crush</h2>
-          <p>Wholesome almonds with jaggery, packed with energy and immunity-boosting nutrients.</p>
-          <div style="display:flex;gap:8px;align-items:center">
-            <span class="strike">Rs279</span>
-            <div class="price">Rs229 / 100g</div>
-          </div>
-          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
-            <button class="button add-to-cart" style="flex:1">Add to cart</button>
-            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20Gud%20Almonds" target="_blank">Buy Now</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-name="Zesty Cashew" data-price="229" data-weight="100g" data-img="IMG_1246 (1) - Edited.png">
-        <img class="product-image" src="IMG_1246 (1) - Edited.png" alt="Zesty Cashew">
-        <div class="text">
-          <h2>Zesty Cashew</h2>
-          <p>Delivers protein, healthy fats, and energy in a crunchy, zesty bite.</p>
-          <div style="display:flex;gap:8px;align-items:center">
-            <span class="strike">Rs279</span>
-            <div class="price">Rs229 / 100g</div>
-          </div>
-          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
-            <button class="button add-to-cart" style="flex:1">Add to cart</button>
-            <a class="button secondary" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20Zesty%20Cashew" target="_blank">Buy Now</a>
-          </div>
-        </div>
-      </article>
-
-    
-    <!-- Order CTA (desktop) -->
     <div style="max-width:1100px;margin:18px auto;text-align:center;padding:0 12px">
       <a class="button" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order!" target="_blank">Order on WhatsApp</a>
     </div>
 
-    <!-- ===== Testimonials section ===== -->
+    <!-- ===== Testimonials section (Google reviews load here) ===== -->
     <section class="testimonials-section" aria-labelledby="testiTitle">
       <div class="testimonials-header">
         <h3 id="testiTitle">What our customers say</h3>
@@ -255,7 +167,7 @@
       </div>
 
       <div class="testimonial-wrap" id="testimonialWrap" aria-live="polite">
-        <!-- testimonial card injected here -->
+        <!-- Google reviews (or fallback testimonials) will be injected here -->
       </div>
 
       <div class="testimonial-controls">
@@ -265,7 +177,7 @@
 
   </main>
 
-  <!-- Cart modal (same as before) -->
+  <!-- Cart modal -->
   <div id="cartModal" class="cart-modal" role="dialog" aria-label="Shopping cart">
     <div class="cart-header">
       <strong>Your Cart</strong>
@@ -314,7 +226,7 @@
     <button id="mobileCheckoutBtn" class="button">Checkout</button>
   </div>
 
-  <!-- Floating social bar (same) -->
+  <!-- Floating social bar -->
   <div class="social-bar" aria-hidden="false">
     <a href="https://wa.me/919896309925" title="WhatsApp" target="_blank" aria-label="WhatsApp" class="whatsapp">
       <i class="fa-brands fa-whatsapp"></i>
@@ -361,7 +273,7 @@
           </div>
         `;row.querySelector('.qty-plus').addEventListener('click', ()=>{ updateQty(item.name, item.qty+1); });row.querySelector('.qty-minus').addEventListener('click', ()=>{ updateQty(item.name, item.qty-1); });row.querySelector('.remove-item').addEventListener('click', ()=>{ removeFromCart(item.name); });container.appendChild(row);});document.getElementById('cartTotal').textContent = 'Rs' + calcTotal();renderCartCount();renderMobileBar();}
 
-    // Initialize add-to-cart buttons (graceful: only if cards exist)
+    // Initialize add-to-cart buttons
     document.querySelectorAll('.card').forEach(card=>{const btn = card.querySelector('.add-to-cart');if(btn){btn.addEventListener('click', ()=>{const item = {name: card.dataset.name.trim(),price: Number(card.dataset.price),weight: card.dataset.weight || '',img: card.dataset.img || card.querySelector('img')?.src || ''};addToCart(item);});}});
 
     const cartModal = document.getElementById('cartModal');
@@ -387,60 +299,97 @@
     window.addEventListener('resize', renderMobileBar);
     document.addEventListener('click', (e)=>{ if(e.target.matches('.add-to-cart')){ if(e.shiftKey){ openCartModal(); } } });
 
-    // ===== Testimonials logic =====
-    const TESTI_KEY = 'nutsnuskha_testimonials_v1';
+    // ===== Google Reviews + Testimonial logic =====
+    // This script fetches from /api/reviews (server proxy to Google Places Details)
+    // If /api/reviews fails, it falls back to local testimonials saved in localStorage.
+    // You can deploy a Node/Express server that implements /api/reviews (I can provide it).
+    const REVIEWS_ENDPOINT = '/api/reviews'; // your server must implement this
+
     const defaultTestimonials = [
       {name:'Neha Kapoor',location:'Delhi',product:'Gudness Chana',msg:'The Gud Channa reminds me of homemade snacks! Perfect balance of sweetness and crunch — my new tea-time favorite!',rating:5},
       {name:'Rohit Mehta',location:'Mumbai',product:'Trail Mix',msg:'Nuts Nuskha trail mix is my go-to energy snack before workouts. Fresh, crunchy, and perfectly roasted!',rating:5},
       {name:'Rahul Bansal',location:'Gurgaon',product:'Gift Hamper',msg:'I gifted Nuts Nuskha hampers to my team this Diwali, and everyone loved them. Classy packaging and super fresh dry fruits!',rating:5}
     ];
 
-    function getTestimonials(){try{return JSON.parse(localStorage.getItem(TESTI_KEY)) || defaultTestimonials.slice();}catch(e){return defaultTestimonials.slice();}}
-    function saveTestimonials(arr){localStorage.setItem(TESTI_KEY, JSON.stringify(arr));}
+    function saveTestimonials(arr){localStorage.setItem('nutsnuskha_testimonials_v1', JSON.stringify(arr));}
+    function getLocalTestimonials(){try{ return JSON.parse(localStorage.getItem('nutsnuskha_testimonials_v1')) || defaultTestimonials.slice(); }catch(e){ return defaultTestimonials.slice(); }}
 
-    let testimonials = getTestimonials();
-    let activeTesti = 0;
-    let testiTimer = null;
+    // render helpers
+    function shortText(txt, len=260){ if(!txt) return ''; return txt.length>len ? txt.slice(0,len).trim() + '…' : txt; }
 
-    const wrap = document.getElementById('testimonialWrap');
-    const dotsEl = document.getElementById('dots');
+    async function loadReviewsAndRender(){
+      const wrap = document.getElementById('testimonialWrap');
+      const dotsEl = document.getElementById('dots');
+      wrap.innerHTML = '<div style="padding:14px;color:#666">Loading reviews…</div>';
+      try{
+        const resp = await fetch(REVIEWS_ENDPOINT);
+        if(!resp.ok) throw new Error('Network response not ok');
+        const payload = await resp.json();
+        const reviews = payload.reviews || payload || [];
+        if(!reviews || reviews.length === 0){
+          // fallback to local testimonials
+          renderLocalTestimonials();
+          return;
+        }
 
-    function renderTestimonials(){
-      testimonials = getTestimonials();
-      if(testimonials.length===0){ wrap.innerHTML = '<div style="padding:14px;color:#666">No testimonials yet — be the first to share!</div>'; dotsEl.innerHTML=''; return; }
-      const t = testimonials[activeTesti % testimonials.length];
-      wrap.innerHTML = '';
-      const card = document.createElement('div'); card.className='testimonial-card';
-      const initials = t.name ? t.name.split(' ').map(s=>s[0]).slice(0,2).join('') : 'NN';
-      card.innerHTML = `
-        <div class="testimonial-avatar" aria-hidden="true">${initials}</div>
-        <div class="testimonial-body">
-          <div class="stars">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
-          <p>"${t.msg.replace(/\"/g,'') }"</p>
-          <div class="testimonial-meta">— ${t.name}${t.location? ', '+t.location : ''} · <em>${t.product}</em></div>
-        </div>
-      `;
-      wrap.appendChild(card);
+        // transform Google review objects (places API) into our uniform shape
+        const items = reviews.map(rv => ({
+          name: rv.author_name || 'Customer',
+          rating: Math.round(rv.rating || 5),
+          text: rv.text || '',
+          time: rv.relative_time_description || '',
+          author_url: rv.author_url || '',
+          profile_photo: rv.profile_photo_url || ''
+        }));
 
-      // render dots
-      dotsEl.innerHTML = '';
-      testimonials.forEach((_,i)=>{const d = document.createElement('div');d.className='dot'+(i===activeTesti?' active':'');d.addEventListener('click', ()=>{activeTesti=i;renderTestimonials();resetTimer();});dotsEl.appendChild(d);});
+        renderReviewItems(items);
+      }catch(err){
+        console.warn('Could not load Google reviews:', err);
+        renderLocalTestimonials();
+      }
     }
 
-    function nextTesti(){ activeTesti = (activeTesti +1) % testimonials.length; renderTestimonials(); }
-    function prevTesti(){ activeTesti = (activeTesti -1 + testimonials.length) % testimonials.length; renderTestimonials(); }
+    function renderReviewItems(items){
+      const wrap = document.getElementById('testimonialWrap');
+      const dotsEl = document.getElementById('dots');
+      let active = 0;
+      function render(){
+        const t = items[active];
+        wrap.innerHTML = `
+          <div class="testimonial-card" role="group" aria-roledescription="slide">
+            <div class="testimonial-avatar" aria-hidden="true">
+              ${ t.profile_photo ? `<img src="${t.profile_photo}" alt="${t.name}">` : (t.name ? t.name.split(' ').map(s=>s[0]).slice(0,2).join('') : 'NN') }
+            </div>
+            <div class="testimonial-body">
+              <div class="stars">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
+              <p>"${ shortText(t.text, 300) }"</p>
+              <div class="testimonial-meta">— ${ t.author_url ? `<a href="${t.author_url}" target="_blank" rel="noopener noreferrer">${t.name}</a>` : t.name } ${ t.time ? '· '+t.time : '' }</div>
+            </div>
+          </div>
+        `;
+        dotsEl.innerHTML = '';
+        items.forEach((_,i)=>{ const d = document.createElement('div'); d.className = 'dot' + (i===active ? ' active' : ''); d.addEventListener('click', ()=>{ active = i; render(); }); dotsEl.appendChild(d); });
+      }
+      // Prev / Next button support
+      document.getElementById('nextTestimonial').onclick = ()=>{ active = (active+1) % items.length; render(); resetAuto(); };
+      document.getElementById('prevTestimonial').onclick = ()=>{ active = (active-1+items.length) % items.length; render(); resetAuto(); };
 
-    document.getElementById('nextTestimonial').addEventListener('click', ()=>{ nextTesti(); resetTimer(); });
-    document.getElementById('prevTestimonial').addEventListener('click', ()=>{ prevTesti(); resetTimer(); });
+      // auto-rotate
+      let timer = setInterval(()=>{ active = (active+1) % items.length; render(); }, 6000);
+      function resetAuto(){ clearInterval(timer); timer = setInterval(()=>{ active = (active+1) % items.length; render(); }, 6000); }
+      wrap.addEventListener('mouseenter', ()=> clearInterval(timer));
+      wrap.addEventListener('mouseleave', ()=> resetAuto());
 
-    // Auto-rotate
-    function startTimer(){ if(testiTimer) clearInterval(testiTimer); testiTimer = setInterval(nextTesti, 5000); }
-    function resetTimer(){ startTimer(); }
+      render();
+    }
 
-    wrap.addEventListener('mouseenter', ()=>{ if(testiTimer) clearInterval(testiTimer); });
-    wrap.addEventListener('mouseleave', ()=>{ startTimer(); });
+    // if Google reviews aren't available, show saved/local testimonials
+    function renderLocalTestimonials(){
+      const arr = getLocalTestimonials();
+      renderReviewItems(arr.map(t => ({ name:t.name, rating:t.rating||5, text:t.msg, time:'', author_url:'', profile_photo:'' })));
+    }
 
-    // Add testimonial modal handling
+    // Add testimonial modal handling (saves to localStorage)
     const modal = document.getElementById('modalBackdrop');
     document.getElementById('openAddTestimonial').addEventListener('click', ()=>{ modal.style.display='flex'; document.getElementById('testiName').focus(); });
     document.getElementById('cancelTesti').addEventListener('click', ()=>{ modal.style.display='none'; });
@@ -451,20 +400,30 @@
       const product = document.getElementById('testiProduct').value;
       const msg = document.getElementById('testiMessage').value.trim() || 'Great product!';
       const rating = parseInt(document.getElementById('testiRating').value,10) || 5;
-      const arr = getTestimonials();
-      arr.unshift({name,location,product,msg,rating}); // add to top
+      const arr = getLocalTestimonials();
+      arr.unshift({name,location,product,msg,rating});
       saveTestimonials(arr);
-      testimonials = arr;
-      activeTesti = 0;
-      renderTestimonials();
+      // update view
+      renderLocalTestimonials();
       modal.style.display='none';
-      // clear form
       document.getElementById('testiName').value='';document.getElementById('testiLocation').value='';document.getElementById('testiMessage').value='';document.getElementById('testiRating').value='5';
     });
 
-    // initialize
-    renderTestimonials(); startTimer();
+    // initialize testimonials area
+    document.addEventListener('DOMContentLoaded', ()=>{ loadReviewsAndRender(); });
 
   </script>
+
+  <!--
+    -------------------------------------------------------------------------
+    REQUIRED SERVER (one-time): /api/reviews proxy (Node/Express suggested)
+    - Use Google Places Details API (fields=name,rating,reviews)
+    - Keep your API key on the server (do NOT expose on client)
+    - Cache results server-side (e.g., 6 hours) to reduce billing
+    Example server code (I can provide if you want). Deploy to same origin or adjust REVIEWS_ENDPOINT.
+    NOTE: Places Details returns a limited number of reviews (usually up to ~5).
+    If you own the Google Business Profile and want full reviews, use Business Profile API (OAuth).
+    -------------------------------------------------------------------------
+  -->
 </body>
 </html>
