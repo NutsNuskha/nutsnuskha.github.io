@@ -65,6 +65,18 @@
 
     .social-bar{position:fixed;left:12px;bottom:20px;display:flex;flex-direction:column;gap:8px;z-index:70}
     .social-bar a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.12);text-decoration:none;color:var(--brand);font-size:18px}
+    .gmail-icon {
+  width: 20px;     /* small square to visually match icon fonts */
+  height: 20px;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gmail:hover .gmail-icon {
+  transform: scale(1.15);
+  opacity: 0.9;
+}
     footer{margin-top:34px;font-size:0.9em;color:#555;padding:24px;text-align:center}
 
     @media (max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr);padding:6px}header{padding:10px}}
