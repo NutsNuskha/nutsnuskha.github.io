@@ -390,10 +390,12 @@
     // ===== Testimonials logic =====
     const TESTI_KEY = 'nutsnuskha_testimonials_v1';
     const defaultTestimonials = [
-      {name:'Neha Kapoor',location:'Delhi',product:'Gudness Chana',msg:'The Gud Channa reminds me of homemade snacks! Perfect balance of sweetness and crunch — my new tea-time favorite!',rating:5},
-      {name:'Rohit Mehta',location:'Mumbai',product:'Trail Mix',msg:'Nuts Nuskha trail mix is my go-to energy snack before workouts. Fresh, crunchy, and perfectly roasted!',rating:5},
-      {name:'Rahul Bansal',location:'Gurgaon',product:'Gift Hamper',msg:'I gifted Nuts Nuskha hampers to my team this Diwali, and everyone loved them. Classy packaging and super fresh dry fruits!',rating:5}
+      {name:'Cha Koo Chi',location:'Banglore',product:'Power Munch',msg:'Beautiful product, clean packaging, great snack!',rating:5},
+      {name:'Sneha Pal',location:'Delhi',product:'Guddness Channa & Power Munch',msg:'Trust me it was been a regular snack whole day juggling with make up bookings and unhealthy khana has been a habbit. My friend has told me about their power munch & gud chana btw as sweet lover gud chand is outstanding & healthy option. Highly recommend for someone who has sweet tooth still wanted to eat something healthy.❤️🙌',rating:5},
+      {name:'Jyotika Kohli',location:'Gurgaon',product:'Power Munch',msg:'My fav one is power munch without doubt also it is my go to snack as living in PG and struggling with having healthy snack🥲 after gyming had been a serious problem. Ordered 5th time from them and i am sorted now.',rating:5}
+      {name:'Tishya Relia',location:'Mumbai',product:'Diwali Hamper',msg:'Got my Diwali party snacks from them and they were really good. Fresh and healthy with great flavours. Will definitely order again',rating:5}
     ];
+
 
     function getTestimonials(){try{return JSON.parse(localStorage.getItem(TESTI_KEY)) || defaultTestimonials.slice();}catch(e){return defaultTestimonials.slice();}}
     function saveTestimonials(arr){localStorage.setItem(TESTI_KEY, JSON.stringify(arr));}
