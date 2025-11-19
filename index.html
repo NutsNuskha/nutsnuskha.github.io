@@ -401,7 +401,10 @@
     ];
 
     function getTestimonials(){try{return JSON.parse(localStorage.getItem(TESTI_KEY)) || defaultTestimonials.slice();}catch(e){return defaultTestimonials.slice();}}
-    function saveTestimonials(arr){localStorage.setItem(TESTI_KEY, JSON.stringify(arr));}
+    function saveTestimonials(arr){
+  const limited = arr.slice(0, 10); // keep only first 10
+  localStorage.setItem(TESTI_KEY, JSON.stringify(limited));
+}
 
     let testimonials = getTestimonials();
     let activeTesti = 0;
