@@ -387,7 +387,7 @@
     window.addEventListener('resize', renderMobileBar);
     document.addEventListener('click', (e)=>{ if(e.target.matches('.add-to-cart')){ if(e.shiftKey){ openCartModal(); } } });
 
-    // ===== Testimonials logic =====
+   // ===== Testimonials logic =====
     const TESTI_KEY = 'nutsnuskha_testimonials_v1';
     const defaultTestimonials = [
       {name:'Cha Koo Chi',location:'Banglore',product:'Power Munch',msg:'Beautiful product, clean packaging, great snack!',rating:5},
@@ -398,11 +398,7 @@
       {name:'Arti Grover',location:'Delhi',product:'Power Munch',msg:'Sumptuous, healthy and pocket friendly snacking..Must try !!!',rating:5},
       {name:'Khushi Shandilya',location:'Panipat',product:'Guddness Channa',msg:'Gud chana is so tasty 😋 even i have it daily while having my milk.. my mom loves it Highly recommend!',rating:5},
       {name:'Surinder Kaur',location:'Ludhiyana',product:'Power Munch',msg:'Power munch is my ultimate fav. Perfect for evening snacking. Even i carry it daily for office.',rating:5}
-   ];
-    
-
-
-
+    ];
     function getTestimonials(){try{return JSON.parse(localStorage.getItem(TESTI_KEY)) || defaultTestimonials.slice();}catch(e){return defaultTestimonials.slice();}}
     function saveTestimonials(arr){localStorage.setItem(TESTI_KEY, JSON.stringify(arr));}
 
