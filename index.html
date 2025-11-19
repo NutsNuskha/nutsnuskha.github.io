@@ -396,40 +396,6 @@
       cursor:pointer
     }
     .dot.active{background:var(--brand)}
-
-    /* Add testimonial form modal */
-    .modal-backdrop{
-      position:fixed;
-      left:0;top:0;right:0;bottom:0;
-      background:rgba(0,0,0,0.35);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:120
-    }
-    .modal{
-      background:#fff;
-      padding:16px;
-      border-radius:12px;
-      max-width:480px;
-      width:94%;
-      box-shadow:0 20px 60px rgba(0,0,0,0.25)
-    }
-    .modal h4{margin:0 0 8px 0}
-    .modal input,
-    .modal textarea,
-    .modal select{
-      width:100%;
-      padding:8px;
-      border-radius:8px;
-      border:1px solid #eee;
-      margin-bottom:8px
-    }
-
-    @media (max-width:600px){
-      .testimonial-card{flex-direction:row;gap:10px}
-      .testimonial-avatar{width:56px;height:56px}
-    }
   </style>
 </head>
 <body>
@@ -572,7 +538,6 @@
         <div style="display:flex;gap:8px;align-items:center">
           <button id="prevTestimonial" class="button secondary" aria-label="Previous testimonial">‹</button>
           <button id="nextTestimonial" class="button" aria-label="Next testimonial">›</button>
-          <button id="openAddTestimonial" class="button secondary" style="margin-left:8px">Add Testimonial</button>
         </div>
       </div>
 
@@ -605,37 +570,6 @@
         </div>
       </div>
       <small style="color:#666">Pickup & delivery info can be added here. Cart saved in your browser (localStorage).</small>
-    </div>
-  </div>
-
-  <!-- Add testimonial modal -->
-  <div id="modalBackdrop" class="modal-backdrop">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="addTestiTitle">
-      <h4 id="addTestiTitle">Share your experience</h4>
-      <input id="testiName" placeholder="Your name (e.g. Riya Sharma)" />
-      <input id="testiLocation" placeholder="Location (optional)" />
-      <select id="testiProduct">
-        <option value="General">General / Brand</option>
-        <option value="Gudness Chana">Gudness Chana</option>
-        <option value="Power Munch">Power Munch</option>
-        <option value="Gud Almonds">Gud Almonds</option>
-        <option value="Zesty Cashew">Zesty Cashew</option>
-      </select>
-      <textarea id="testiMessage" rows="4" placeholder="What did you like? (short is fine)"></textarea>
-      <div style="display:flex;gap:8px;margin-bottom:8px">
-        <label>Rating:</label>
-        <select id="testiRating">
-          <option value="5">5</option>
-          <option value="4">4</option>
-          <option value="3">3</option>
-          <option value="2">2</option>
-          <option value="1">1</option>
-        </select>
-      </div>
-      <div style="display:flex;gap:8px;justify-content:flex-end">
-        <button id="cancelTesti" class="button secondary">Cancel</button>
-        <button id="saveTesti" class="button">Submit</button>
-      </div>
     </div>
   </div>
 
@@ -837,8 +771,7 @@
       }
     });
 
-    // ===== Testimonials logic (max 10) =====
-    const TESTI_KEY = 'nutsnuskha_testimonials_v1';
+    // ===== Testimonials logic (default only, max 10) =====
     const defaultTestimonials = [
       {name:'Cha Koo Chi',location:'Bangalore',product:'Power Munch',msg:'Beautiful product, clean packaging, great snack!',rating:5},
       {name:'Sneha Pal',location:'Delhi',product:'Gudness Chana & Power Munch',msg:'As a sweet lover, their Gud chana is outstanding & still feels like a healthy option. Highly recommended!',rating:5},
@@ -852,24 +785,8 @@
       {name:'Rohit Mehta',location:'Mumbai',product:'Trail Mix',msg:'Their mix is my pre-workout fuel. Fresh, crunchy and feels clean on the stomach.',rating:5}
     ];
 
-    // Always return max 10
-    function getTestimonials(){
-      try{
-        const saved = JSON.parse(localStorage.getItem(TESTI_KEY));
-        if(Array.isArray(saved) && saved.length>0){
-          return saved.slice(0,10);
-        }
-      }catch(e){}
-      return defaultTestimonials.slice(0,10);
-    }
-
-    // Always store max 10
-    function saveTestimonials(arr){
-      const limited = arr.slice(0,10); // keep only first 10
-      localStorage.setItem(TESTI_KEY, JSON.stringify(limited));
-    }
-
-    let testimonials = getTestimonials();
+    // ensure max 10
+    let testimonials = defaultTestimonials.slice(0,10);
     let activeTesti = 0;
     let testiTimer = null;
 
@@ -877,9 +794,8 @@
     const dotsEl = document.getElementById('dots');
 
     function renderTestimonials(){
-      testimonials = getTestimonials();
       if(testimonials.length===0){
-        wrap.innerHTML = '<div style="padding:14px;color:#666">No testimonials yet — be the first to share!</div>';
+        wrap.innerHTML = '<div style="padding:14px;color:#666">No testimonials yet — coming soon!</div>';
         dotsEl.innerHTML='';
         return;
       }
@@ -942,36 +858,6 @@
     });
     wrap.addEventListener('mouseleave', ()=>{
       startTimer();
-    });
-
-    // Add testimonial modal handling
-    const modal = document.getElementById('modalBackdrop');
-    document.getElementById('openAddTestimonial').addEventListener('click', ()=>{
-      modal.style.display='flex';
-      document.getElementById('testiName').focus();
-    });
-    document.getElementById('cancelTesti').addEventListener('click', ()=>{
-      modal.style.display='none';
-    });
-
-    document.getElementById('saveTesti').addEventListener('click', ()=>{
-      const name = document.getElementById('testiName').value.trim() || 'Anonymous';
-      const location = document.getElementById('testiLocation').value.trim();
-      const product = document.getElementById('testiProduct').value;
-      const msg = document.getElementById('testiMessage').value.trim() || 'Great product!';
-      const rating = parseInt(document.getElementById('testiRating').value,10) || 5;
-      const arr = getTestimonials();
-      arr.unshift({name,location,product,msg,rating}); // add latest on top
-      saveTestimonials(arr);
-      testimonials = getTestimonials();
-      activeTesti = 0;
-      renderTestimonials();
-      modal.style.display='none';
-      // clear form
-      document.getElementById('testiName').value='';
-      document.getElementById('testiLocation').value='';
-      document.getElementById('testiMessage').value='';
-      document.getElementById('testiRating').value='5';
     });
 
     // initialize testimonials
