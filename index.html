@@ -9,17 +9,14 @@
   <style>
     :root{
       --brand:#8d5a2a;
-      --muted:#777;
-      --bg:#f2f7ff;            /* wintery light blue */
-      --card:#ffffff;
-      --accent:#25D366;        /* whatsapp */
+      --muted:#999;
+      --bg:#fff9f3;
+      --card:#fff;
+      --accent:#25D366; /* whatsapp */
       --glass: rgba(255,255,255,0.85);
-      --testimonial-bg:#e7f1ff;/* soft winter panel */
-      --winter-accent:#4a90e2; /* icy blue accent */
+      --testimonial-bg: #fff6f0;
     }
-
     *{box-sizing:border-box}
-
     body {
       font-family: 'Quicksand', sans-serif;
       text-align: center;
@@ -28,29 +25,6 @@
       padding: 0;
       margin:0;
       -webkit-font-smoothing:antialiased;
-      position:relative;
-      min-height:100vh;
-      overflow-x:hidden;
-    }
-
-    /* soft winter gradient + snow overlay */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background:
-        radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,0.8) 0, transparent 50%),
-        radial-gradient(2px 2px at 80% 0%, rgba(255,255,255,0.7) 0, transparent 50%),
-        radial-gradient(3px 3px at 50% 100%, rgba(255,255,255,0.6) 0, transparent 55%),
-        linear-gradient(180deg,#f2f7ff 0%, #d7e9ff 45%, #fefefe 100%);
-      z-index:-1;
-      animation:snowfall 35s linear infinite;
-    }
-
-    @keyframes snowfall{
-      0%{transform:translateY(-20px);}
-      100%{transform:translateY(40px);}
     }
 
     header{
@@ -63,24 +37,15 @@
       padding:12px 16px;
       position:sticky;
       top:0;
-      background:linear-gradient(180deg,
-        rgba(242,247,255,0.98),
-        rgba(242,247,255,0.95));
+      background:linear-gradient(180deg, rgba(255,249,243,0.98), rgba(255,249,243,0.95));
       z-index:20;
       border-bottom:1px solid rgba(0,0,0,0.04);
-      backdrop-filter:blur(8px);
     }
     .logo {max-width:120px;height:auto}
     .brand-wrap{display:flex;align-items:center;gap:12px}
     h1 {color:var(--brand); margin:0;font-size:1.05rem}
-    p.tagline{margin:0;color:#4b5b6a;font-size:0.85rem}
-    .nav a{
-      margin:0 8px;
-      text-decoration:none;
-      color:var(--brand);
-      font-weight:600;
-      font-size:0.95rem
-    }
+    p.tagline{margin:0;color:#6a4f3b;font-size:0.85rem}
+    .nav a{margin:0 8px;text-decoration:none;color:var(--brand);font-weight:600;font-size:0.95rem}
     main{padding:14px}
 
     .product-grid{
@@ -92,27 +57,24 @@
     }
     .card{
       background:var(--card);
-      border-radius:14px;
-      box-shadow:0 10px 24px rgba(0,0,0,0.06);
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
       padding:12px;
       display:flex;
       gap:12px;
       align-items:flex-start;
-      transition:transform .18s, box-shadow .18s, background .18s;
-      border:1px solid rgba(255,255,255,0.7);
+      transition:transform .18s, box-shadow .18s
     }
     .card:hover{
       transform:translateY(-6px);
-      box-shadow:0 16px 34px rgba(0,0,0,0.08);
-      background:linear-gradient(145deg,#ffffff,#f5f8ff);
+      box-shadow:0 14px 30px rgba(0,0,0,0.08)
     }
     .product-image{
       width:120px;
       height:120px;
       object-fit:cover;
-      border-radius:12px;
-      flex-shrink:0;
-      border:2px solid #eef3ff;
+      border-radius:10px;
+      flex-shrink:0
     }
     .text{flex:1;text-align:left}
     .text h2{color:#7b3f00;margin:4px 0;font-size:1.02rem}
@@ -127,14 +89,10 @@
       border:none;
       border-radius:10px;
       font-size:14px;
-      cursor:pointer;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:6px;
+      cursor:pointer
     }
     .button.secondary{
-      background:#f3f6fb;
+      background:#f3f3f3;
       color:#333;
       border:1px solid rgba(0,0,0,0.05)
     }
@@ -167,10 +125,9 @@
       gap:8px;
       padding:8px 12px;
       border-radius:12px;
-      background:#ffffff;
+      background:#fff;
       border:1px solid rgba(0,0,0,0.06);
-      cursor:pointer;
-      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+      cursor:pointer
     }
     .cart-count{
       position:absolute;
@@ -190,7 +147,7 @@
       width:380px;
       max-width:calc(100% - 36px);
       background:var(--glass);
-      backdrop-filter:blur(8px);
+      backdrop-filter:blur(4px);
       border-radius:14px;
       box-shadow:0 18px 40px rgba(0,0,0,0.25);
       z-index:80;
@@ -204,9 +161,7 @@
       align-items:center;
       padding:12px 14px;
       border-bottom:1px solid rgba(0,0,0,0.06);
-      background:linear-gradient(180deg,
-        rgba(255,255,255,0.85),
-        rgba(237,244,255,0.9))
+      background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.6))
     }
     .cart-body{max-height:320px;overflow:auto;padding:12px}
     .cart-row{
@@ -251,13 +206,7 @@
       box-shadow:0 6px 18px rgba(0,0,0,0.12);
       text-decoration:none;
       color:var(--brand);
-      font-size:18px;
-      transition:transform .18s, box-shadow .18s, background .18s;
-    }
-    .social-bar a:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 26px rgba(0,0,0,0.16);
-      background:#f4f7ff;
+      font-size:18px
     }
     .gmail-icon {
       width: 20px;
@@ -266,6 +215,7 @@
       object-fit: contain;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
+
     .gmail:hover .gmail-icon {
       transform: scale(1.15);
       opacity: 0.9;
@@ -301,9 +251,7 @@
         position:fixed;
         left:0;right:0;bottom:0;
         padding:12px;
-        background:linear-gradient(0deg,
-          rgba(242,247,255,0.98),
-          rgba(242,247,255,0.95));
+        background:linear-gradient(0deg, rgba(255,249,243,0.98), rgba(255,249,243,0.95));
         box-shadow:0 -6px 18px rgba(0,0,0,0.06);
         display:flex;
         justify-content:space-between;
@@ -315,26 +263,109 @@
       .social-bar{left:auto;right:12px;bottom:90px}
     }
 
+    /* ===== Winter banner ===== */
+    .winter-banner{
+      max-width:1100px;
+      margin:10px auto 18px auto;
+      padding:16px 14px;
+      border-radius:18px;
+      background:linear-gradient(135deg,#fffdf9,#f1f7ff);
+      box-shadow:0 10px 26px rgba(0,0,0,0.06);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      border:1px solid rgba(255,255,255,0.9);
+      position:relative;
+      overflow:hidden;
+    }
+    .winter-banner::after{
+      content:"❄";
+      position:absolute;
+      font-size:60px;
+      right:16px;
+      top:-8px;
+      opacity:0.15;
+      color:#7aa6ff;
+    }
+    .winter-banner-text{
+      text-align:left;
+      max-width:70%;
+    }
+    .winter-banner-title{
+      margin:0 0 4px 0;
+      font-size:1.1rem;
+      color:#7b3f00;
+    }
+    .winter-banner-sub{
+      margin:0 0 10px 0;
+      font-size:0.9rem;
+      color:#6a4f3b;
+    }
+    .winter-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 8px;
+      border-radius:999px;
+      font-size:0.8rem;
+      background:rgba(122,166,255,0.1);
+      color:#4b5b7f;
+      margin-bottom:6px;
+    }
+    .winter-banner-cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+    }
+    .winter-banner .small-note{
+      font-size:0.8rem;
+      color:#777;
+    }
+    .winter-banner-illustration{
+      flex-shrink:0;
+      width:88px;
+      height:88px;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 30%,#ffffff, #f1f7ff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:34px;
+    }
+
+    @media (max-width:700px){
+      .winter-banner{
+        flex-direction:row;
+        align-items:flex-start;
+      }
+      .winter-banner-text{max-width:100%;}
+      .winter-banner-illustration{
+        width:70px;
+        height:70px;
+        font-size:26px;
+      }
+    }
+
+    @media (max-width:500px){
+      .winter-banner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .winter-banner-illustration{
+        align-self:flex-end;
+      }
+    }
+
     /* ===== Testimonials styles ===== */
     .testimonials-section{
       max-width:1100px;
       margin:28px auto;
       padding:18px;
-      border-radius:16px;
-      background:linear-gradient(180deg,var(--testimonial-bg),#ffffff);
-      box-shadow:0 8px 24px rgba(0,0,0,0.04);
-      border:1px solid rgba(255,255,255,0.9);
-      position:relative;
-      overflow:hidden;
-    }
-    .testimonials-section::before{
-      content:"❄";
-      position:absolute;
-      font-size:44px;
-      right:18px;
-      top:-6px;
-      opacity:0.12;
-      color:var(--winter-accent);
+      border-radius:12px;
+      background:linear-gradient(180deg,var(--testimonial-bg),#fff);
+      box-shadow:0 8px 24px rgba(0,0,0,0.04)
     }
     .testimonials-header{
       display:flex;
@@ -343,7 +374,7 @@
       gap:12px;
       padding:8px 12px
     }
-    .testimonials-header h3{margin:0;color:#4a3b1f}
+    .testimonials-header h3{margin:0;color:#6a3f1f}
     .testimonial-wrap{position:relative;padding:12px}
     .testimonial-card{
       display:flex;
@@ -355,7 +386,7 @@
       border-radius:10px;
       background:var(--card);
       box-shadow:0 8px 20px rgba(0,0,0,0.03);
-      transition:transform .18s;
+      transition:transform .18s
     }
     .testimonial-avatar{
       width:64px;
@@ -405,7 +436,7 @@
       <div class="brand-wrap">
         <div>
           <h1>Welcome to Nuts Nuskha</h1>
-          <p class="tagline">Wholesome, homemade dry fruits & winter-perfect snacks!</p>
+          <p class="tagline">Wholesome, homemade dry fruits & snacks delivered fresh!</p>
         </div>
       </div>
     </div>
@@ -424,6 +455,29 @@
     </div>
   </header>
 
+  <!-- Winter banner -->
+  <section class="winter-banner">
+    <div class="winter-banner-text">
+      <div class="winter-badge">
+        <span>❄ Winter Specials</span>
+        <span>| Limited seasonal batch</span>
+      </div>
+      <h2 class="winter-banner-title">Cozy, crunchy bites for chilly days</h2>
+      <p class="winter-banner-sub">
+        Snuggle up with Gudness Chana, Power Munch & Zesty Cashew — small-batch, homemade snacks, freshly packed from our Gurgaon kitchen.
+      </p>
+      <div class="winter-banner-cta">
+        <a class="button" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order%20your%20winter%20special%20snacks!" target="_blank">
+          Order Winter Snacks
+        </a>
+        <span class="small-note">Same-day delivery in select areas*</span>
+      </div>
+    </div>
+    <div class="winter-banner-illustration" aria-hidden="true">
+      🧣
+    </div>
+  </section>
+
   <main>
     <div class="product-grid" id="productGrid">
       <!-- Products -->
@@ -431,7 +485,7 @@
         <img class="product-image" src="pudina.png" alt="Pudina Pop">
         <div class="text">
           <h2>Pudina Pop</h2>
-          <p>Pudina Pop Makhana — Light, crunchy, roasted in olive oil with a refreshing pudina twist. Roasted | Low-calorie | Nutrient-rich</p>
+          <p>Pudina Pop Makhana — Light, crunchy, and roasted in olive oil with a refreshing pudina twist. Roasted | Low-calorie | Nutrient-rich</p>
           <div style="display:flex;gap:8px;align-items:center">
             <span class="strike">Rs 235</span>
             <div class="price">Rs175 / 70g</div>
@@ -527,7 +581,7 @@
     <!-- Order CTA -->
     <div style="max-width:1100px;margin:18px auto;text-align:center;padding:0 12px">
       <a class="button" href="https://wa.me/919896309925?text=Hi%20Nuts%20Nuskha!%20I%20want%20to%20order!" target="_blank">
-        ❄ Order Winter Snacks on WhatsApp
+        Order on WhatsApp
       </a>
     </div>
 
@@ -764,10 +818,8 @@
     renderMobileBar();
     window.addEventListener('resize', renderMobileBar);
     document.addEventListener('click', (e)=>{
-      if(e.target.matches('.add-to-cart')){
-        if(e.shiftKey){
-          openCartModal();
-        }
+      if(e.target.matches('.add-to-cart') && e.shiftKey){
+        openCartModal();
       }
     });
 
@@ -785,8 +837,7 @@
       {name:'Rohit Mehta',location:'Mumbai',product:'Trail Mix',msg:'Their mix is my pre-workout fuel. Fresh, crunchy and feels clean on the stomach.',rating:5}
     ];
 
-    // ensure max 10
-    let testimonials = defaultTestimonials.slice(0,10);
+    let testimonials = defaultTestimonials.slice(0,10); // ensure max 10
     let activeTesti = 0;
     let testiTimer = null;
 
@@ -818,9 +869,9 @@
       dotsEl.innerHTML = '';
       testimonials.forEach((_,i)=>{
         const d = document.createElement('div');
-        d.className='dot'+(i===activeTesti?' active':'');
+        d.className = 'dot' + (i===activeTesti ? ' active' : '');
         d.addEventListener('click', ()=>{
-          activeTesti=i;
+          activeTesti = i;
           renderTestimonials();
           resetTimer();
         });
